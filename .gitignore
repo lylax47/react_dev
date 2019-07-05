@@ -1,0 +1,4 @@
+#ignore class materials
+materials/
+
+.DS-store
