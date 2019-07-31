@@ -3,7 +3,6 @@ function choice(items) {
 }
 
 function remove(items, item){
-    console.log(item);
     return items.filter(function(ele){
         return ele !== item;
     });

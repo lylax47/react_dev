@@ -1,0 +1,10 @@
+Components:
+    1. each react component goes in separate file
+        - src/Car.js
+    2. each component is capitalized
+    3. components should be exported as default
+    4. components always extend Component from React
+        - this means you should import from react
+        - import 'React', { Component } from 'react';
+        - class App extends Component {}
+    5. top component should be called App in App.js

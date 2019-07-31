@@ -1,0 +1,19 @@
+Webpack
+    - CRA is built on top of webpack
+    - enables module importing and exporting
+        - packages all css/images/js into a single browser file
+        - reduces the number of http request and helps performance
+    - hot reloding: when src file changes auto reload.
+        - tries to relaod only relevant files
+    - easy testing and deployment.
+
+
+modules
+    - export default <function name> (without parenthesis)
+    - import <function name> from "<module>" (make sure local module has relative path)
+    - default implies the default thing to be exported when called.
+    - if multiple functions then use {<function1>, <function2>, <function3>}
+    - if default adn multiple use import <function1> {<function2>, <function3>}
+        - import React, { Component } from "react";
+        - use default when it makes sense to export one main thing (most important thing)
+        - you never need to do this.
