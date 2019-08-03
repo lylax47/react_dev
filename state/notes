@@ -1,0 +1,15 @@
+- constructor is similar to python init.
+- as in python super also runs parent class constructor.
+- why can't state be accessed witout super call? Why do you need to pass props?
+- never directly manipulate the state
+    - use this.setState
+    - don't call in constructor or render.
+    - asynchronous - react will control when state is updated. It's a request not an immediate command.
+
+
+STATE vs props
+- State = mutable, stores changing component data
+- Props = imutable, stores component configuration
+
+- Normally have smart stateful parent component which passes stateful information down to children as props.
+- This is called "downward dataflow"
