@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Die.css';
+ 
 class Die extends Component {
     render(){
         return(
-            <i className={`fas fa-dice-${this.props.face}`}></i>
+            <FontAwesomeIcon className="Die" icon={`dice-${this.props.face}`} size="6x"></FontAwesomeIcon>
         )
     }
 }
