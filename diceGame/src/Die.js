@@ -5,7 +5,7 @@ import './Die.css';
 class Die extends Component {
     render(){
         return(
-            <FontAwesomeIcon className="Die" icon={`dice-${this.props.face}`} size="6x"></FontAwesomeIcon>
+            <FontAwesomeIcon className={`Die ${this.props.isRolling ? 'Die-rolling' : ''}`} icon={`dice-${this.props.face}`} size="6x"></FontAwesomeIcon>
         )
     }
 }

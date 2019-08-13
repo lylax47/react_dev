@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Die from './Die.js';
+import './RollDie.css';
 
 class RollDie extends Component {
     constructor(props){
         super(props);
         this.state = {
             value1:'one',
-            value2:'one'
+            value2:'one',
+            isRolling: false
         };
         this.roll = this.roll.bind(this);
     }
@@ -15,20 +17,24 @@ class RollDie extends Component {
     }
 
     roll(e){
-        let rand1 = Math.floor(Math.random() * 6);
-        let rand2 = Math.floor(Math.random() * 6);
-        console.log(rand1, rand2);
-        this.setState({value1: this.props.wordArray[rand1]});
-        this.setState({value2: this.props.wordArray[rand2]});
+        let rand1 = this.props.wordArray[Math.floor(Math.random() * 6)];
+        let rand2 = this.props.wordArray[Math.floor(Math.random() * 6)];
+        this.setState({value1: rand1, value2: rand2, isRolling: true}); //setState of both keys in same call.
+        setTimeout(() => {
+            this.setState({isRolling: false})
+        }, 1000);
     }
 
     render(){
         return(
-            <div>
-                <Die face={this.state.value1}/>
-                <Die face={this.state.value2}/>
-                <br />
-                <button onClick={this.roll}>Roll Die</button>
+            <div className="RollDie">
+                <div className="RollDie-container">
+                    <Die face={this.state.value1} isRolling={this.state.isRolling}/>
+                    <Die face={this.state.value2} isRolling={this.state.isRolling}/>
+                </div>
+                <button onClick={this.roll} disabled={this.state.isRolling}>
+                    {this.state.isRolling ? 'Rolling...' : 'Roll Dice!'}
+                </button>
             </div>
         )
     }
