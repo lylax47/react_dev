@@ -1,0 +1,19 @@
+set state
+    - can update using callback forms (best practice)
+    - this is because state updates happen asynchronously.
+
+    - should never set state by mutating current state.
+    - Create a copy of the state data structure first then mutate and pass to setState
+    - .map, .filter, .reduce very useful!!! (spread operator)
+    - efficiency cost, but could cause a lot of errors
+
+minimzie state
+    - limit the data in state to as small as possible
+    - if var doesn't change don't put in state. Should be a prop
+    - Is it already capture by some other value y in state?
+        - could derive age from birthday, and doesn't change often.
+
+Downward data flow
+    - state should live in the parent
+    - parent should be more stateful
+    - makes debugging easier because the state is centralized
