@@ -4,21 +4,20 @@ import './Lottery.css';
 
 
 class lottery extends Component {
-    constructor(props){
-        super(props);
-        this.state={ numArray:[0, 0, 0, 0, 0, 0]};
-        this.genNums = this.genNums.bind(this);
-    }
-
     static defaultProps = {
         title: "Lotto",
         numBalls: 6,
         maxNum: 10
     }
 
+    constructor(props){
+        super(props);
+        this.state={ numArray: [...new Array(this.props.numBalls)]}; // can use Array.from() as well
+        this.genNums = this.genNums.bind(this);
+    }
+
     genNums(e){
-        let outArray = [...new Array(this.props.numBalls)].map(() => Math.floor(Math.random() * this.props.maxNum))
-        this.setState({ numArray: outArray })
+        this.setState(s => ({ numArray: s.numArray.map(n => Math.floor(Math.random() * this.props.maxNum))})); //need to always create new array copy
     }
 
     render(){
