@@ -11,17 +11,36 @@ class Flip extends Component {
             tails: 0
         }
 
-    this.randomFlip = randomFlip.bind(this)
+        this.flipCoin = this.flipCoin.bind(this);
+        this.randomFlip = this.randomFlip.bind(this);
+    }
+    static defaultProps = {
+        sides: ["heads", "tails"]
     }
 
-    
+    flipCoin(e){
+        this.randomFlip();
+    }
+
+    randomFlip(){
+        let newSide = this.props.sides[Math.floor(Math.random() * 2)];
+        this.setState(s => { 
+            return {
+                side: newSide,
+                total: s.total + 1,
+                heads: s.heads + (newSide === "heads" ? 1 : 0),
+                tails: s.tails + (newSide === "tails" ? 1 : 0)
+            }
+        })
+    }
+
     
     render(){
         return(
             <div>
-                <Coin />
-                <button>Flip Me!</button>
-                <p>Out of {</p>
+                <Coin side={this.state.side}/>
+                <button onClick={this.flipCoin}>Flip Me!</button>
+                <p>Out of {this.state.total} flips, there have been {this.state.heads} heads and {this.state.tails} tails.</p>
             </div>
         )
     }
