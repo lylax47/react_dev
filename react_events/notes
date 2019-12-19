@@ -1,0 +1,31 @@
+1. event handlers
+    - method binding with this
+    - pass event handlers as props
+    - key prop when mapping through data
+
+2. event types:
+    - on key up
+    - on key down
+
+3. event vars are passed into all event handlers as special react objects
+
+4. method binding
+    1. use bind in line  this.function.bind(this){}
+    2. arrow function  () => this.function(){}
+    3. bind in the constructor
+    4. function = () => {}
+
+5. parent should define the function
+    - fuction then passed to prop as child component
+    - child component then invokes prop
+    - parent function called to change state
+
+6. Naming Conventions
+    - parent->action, child-> handleAction
+
+7. lists and keys
+    - keys help react identify which items have been changed, are added, or are removed
+    - keys need to be unique
+    - use string that uniquely identifies item among siblings
+    - could use index as a last resort
+    - uuid
